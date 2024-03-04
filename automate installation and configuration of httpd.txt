@@ -1,1 +1,25 @@
+manual steps to follow
 
+step1: Install httpd
+yum install httpd ---> as root/root privilages
+
+step2: chaniging default port 80 to some other port
+cd /etc/httpd/conf/
+vi httpd.conf ----> there you will see somewhere in the file as listen 80 and we can change it
+or
+sed -i 's/80/8080/' httpd.conf ----> replace 80 with 8080 directly (sed is used to replace all 80 with 8080 in the particular file) The -i flag in sed stands for "in-place" editing
+
+step3: write custom static info for home page
+edit index.html file
+
+cd/ var/www/html
+vi index.html ---> write what ever u want 
+
+step4: start/restart httpd
+systemctl restart httpd
+
+step4: finally check the changes
+curl https://localhost:8080
+or check with url on browser
+
+now we will write shellscript for this 
